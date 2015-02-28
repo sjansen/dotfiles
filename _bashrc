@@ -1,0 +1,28 @@
+[ -z "$PS1" ] && return
+
+export EDITOR=vim
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+
+if [ -f /etc/bash_completion.d/git ] && ! shopt -oq posix; then
+    source /etc/bash_completion.d/git
+    PS1='
+\e[1;30m$OLDPWD\e[0m
+\e[1;37m$PWD
+\e[0;36m[\A]\e[0m RC=$? \e[0;36m\u@\e[0m\H \e[0;36m{'"$1"'}\e[0m
+$(__git_ps1 "(%s) ")\$ '
+else
+    PS1='
+\e[1;30m$OLDPWD\e[0m
+\e[1;37m$PWD
+\e[0;36m[\A]\e[0m RC=$? \e[0;36m\u@\e[0m\H \e[0;36m{'"$1"'}\e[0m
+\$ '
+fi
+
+# Go
+export GOPATH="${HOME}/Documents/go"
+export PATH="${PATH}:${GOPATH}/bin"
+
+# Java
+export JAVA_HOME="$(/usr/libexec/java_home)"

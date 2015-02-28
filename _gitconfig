@@ -1,0 +1,7 @@
+[user]
+	name = Stuart Jansen
+	email = sjansen@buscaluz.org
+[color]
+	ui = auto
+[core]
+	whitespace=-indent-with-non-tab,trailing-space,cr-at-eol

@@ -1,0 +1,8 @@
+# Directories
+
+# Files
+.DS_Store
+
+# Patterns
+.*.swp[op]
+*.py[co]
