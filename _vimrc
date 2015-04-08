@@ -52,3 +52,7 @@ endif
 
 au FileType json setlocal equalprg=python\ -m\ json.tool
 com! FormatJSON %!python -m json.tool
+
+" Syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
