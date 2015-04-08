@@ -5,6 +5,13 @@ set encoding=utf-8 nobomb
 set modeline
 set modelines=5
 
+if filereadable(expand("~/.vim/autoload/pathogen.vim"))
+    runtime! autoload/pathogen.vim
+    if exists("g:loaded_pathogen")
+       execute pathogen#infect()
+    endif
+endif
+
 if has("autocmd")
     filetype on
     filetype indent on
