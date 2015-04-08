@@ -4,4 +4,8 @@
 [color]
 	ui = auto
 [core]
-	whitespace=-indent-with-non-tab,trailing-space,cr-at-eol
+	whitespace=-indent-with-non-tab,cr-at-eol,space-before-tab,tab-in-indent,trailing-space
+[push]
+	default = simple
+[rebase]
+	stat = true
