@@ -12,6 +12,13 @@ export EDITOR=vim
 export LANG=en_US.UTF-8
 export PATH="${PATH}:${HOME}/bin"
 
+# functions
+function append_to_path {
+    if [ -d "$1" ]; then
+        export PATH="$PATH:$1"
+    fi
+}
+
 # Bash
 if [ -f /etc/bash_completion.d/git ] && ! shopt -oq posix; then
     source /etc/bash_completion.d/git
@@ -32,5 +39,14 @@ fi
 export GOPATH="${HOME}/Documents/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
+# Heroku
+append_to_path /usr/local/heroku/bin
+
 # Java
 export JAVA_HOME="$(/usr/libexec/java_home)"
+
+# Maven
+append_to_path $(ls -1d ~/.local/apache-maven-*/bin 2>/dev/null)
+
+# Postgres
+append_to_path $(ls -1d /Applications/Postgres.app/Contents/Versions/*/bin 2>/dev/null)
