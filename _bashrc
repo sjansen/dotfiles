@@ -13,11 +13,20 @@ export LANG=en_US.UTF-8
 export PATH="${PATH}:${HOME}/bin"
 
 # functions
+function alias_if_exists {
+    if [ -x "$1" ]; then
+        alias $(basename "$1")="$1"
+    fi
+}
+
 function append_to_path {
     if [ -d "$1" ]; then
         export PATH="$PATH:$1"
     fi
 }
+
+# AWS CLI
+alias_if_exists ~/.local/awscli/bin/aws
 
 # Bash
 if [ -f /etc/bash_completion.d/git ] && ! shopt -oq posix; then
