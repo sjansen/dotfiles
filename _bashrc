@@ -42,6 +42,9 @@ export PATH="${PATH}:${GOPATH}/bin"
 # Heroku
 append_to_path /usr/local/heroku/bin
 
+# Intellij
+append_to_path $(ls -1rd ~/.local/idea-I?-*/bin 2>/dev/null)
+
 # Java
 if [ -x /usr/libexec/java_home ]; then
     export JAVA_HOME="$(/usr/libexec/java_home)"
@@ -52,3 +55,7 @@ append_to_path $(ls -1rd ~/.local/apache-maven-*/bin 2>/dev/null)
 
 # Postgres
 append_to_path $(ls -1rd /Applications/Postgres.app/Contents/Versions/*/bin 2>/dev/null)
+
+# Scala
+append_to_path $(ls -1d ~/.local/sbt/bin 2>/dev/null)
+append_to_path $(ls -1rd ~/.local/scala-*/bin 2>/dev/null)
