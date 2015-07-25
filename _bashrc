@@ -43,7 +43,9 @@ export PATH="${PATH}:${GOPATH}/bin"
 append_to_path /usr/local/heroku/bin
 
 # Java
-export JAVA_HOME="$(/usr/libexec/java_home)"
+if [ -x /usr/libexec/java_home ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
 
 # Maven
 append_to_path $(ls -1d ~/.local/apache-maven-*/bin 2>/dev/null)
