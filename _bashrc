@@ -48,7 +48,7 @@ if [ -x /usr/libexec/java_home ]; then
 fi
 
 # Maven
-append_to_path $(ls -1d ~/.local/apache-maven-*/bin 2>/dev/null)
+append_to_path $(ls -1rd ~/.local/apache-maven-*/bin 2>/dev/null)
 
 # Postgres
-append_to_path $(ls -1d /Applications/Postgres.app/Contents/Versions/*/bin 2>/dev/null)
+append_to_path $(ls -1rd /Applications/Postgres.app/Contents/Versions/*/bin 2>/dev/null)
