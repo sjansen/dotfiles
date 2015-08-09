@@ -1,6 +1,9 @@
 [ -z "$PS1" ] && return
 
 # aliases
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 if [ -x '/Applications/MacVim.app/Contents/MacOS/MacVim' ]; then
