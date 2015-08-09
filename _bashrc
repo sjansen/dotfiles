@@ -52,6 +52,9 @@ else
 \$ '
 fi
 
+# Ceylon
+append_to_path $(ls -1d ~/.local/ceylon-*/bin 2>/dev/null)
+
 # Go
 export GOPATH="${HOME}/Documents/go"
 export PATH="${PATH}:${GOPATH}/bin"
