@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd $(dirname "$0")
+cd $(dirname "$0")/tmpl
 
 for I in _*
 do
-  diff -ru -X diff-exclude ~/${I/_/.} $I
+  diff -ru -X ../conf/diff-exclude ~/${I/_/.} $I
 done
