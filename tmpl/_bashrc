@@ -33,6 +33,16 @@ function append_to_path {
     fi
 }
 
+if [ -x $(\which xdg-open 2>/dev/null) ]; then
+    function open {
+        if [ -f "$1" ]; then
+            xdg-open file://$(readlink -f "$1")
+        else
+            xdg-open "$1"
+        fi
+    }
+fi
+
 # AWS CLI
 alias_if_exists ~/.local/awscli/bin/aws
 
