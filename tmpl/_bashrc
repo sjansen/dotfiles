@@ -44,6 +44,7 @@ if [ -x $(\which xdg-open 2>/dev/null) ]; then
 fi
 
 # AWS CLI
+# virtualenv ~/.local/awscli ; ~/.local/awscli/bin/pip install -U awscli
 alias_if_exists ~/.local/awscli/bin/aws
 
 # Bash
@@ -70,6 +71,7 @@ append_to_path $(ls -1d ~/.local/ceylon-*/bin 2>/dev/null)
 alias_if_exists ~/.local/docker-compose/bin/docker-compose
 
 # Go
+# go get github.com/constabulary/gb/...
 export GOPATH="${HOME}/Documents/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
