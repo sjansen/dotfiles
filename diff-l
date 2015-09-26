@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+cd $(dirname "$0")/tmpl
+
+for I in _*
+do
+  diff -rqN -X ../conf/diff-exclude ~/${I/_/.} $I
+done
