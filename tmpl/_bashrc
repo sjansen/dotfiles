@@ -65,6 +65,10 @@ fi
 # Ceylon
 append_to_path $(ls -1d ~/.local/ceylon-*/bin 2>/dev/null)
 
+# docker-compose
+# virtualenv ~/.local/docker-compose ; ~/.local/docker-compose/bin/pip install -U docker-compose
+alias_if_exists ~/.local/docker-compose/bin/docker-compose
+
 # Go
 export GOPATH="${HOME}/Documents/go"
 export PATH="${PATH}:${GOPATH}/bin"
