@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import filecmp
+import os
+import subprocess
+
+from os import path
+
+HOME = path.expanduser("~")
+TOP = path.realpath(path.join(path.dirname(__file__), 'tmpl'))
+TRIM = len(TOP) + 1
+
+def vimdiff(dst, src):
+    print dst
+    subprocess.call(['vimdiff', dst, src])
+
+for root, _, files in os.walk(TOP):
+    for name in files:
+        src = path.join(root, name)
+        subpath = src[TRIM:]
+        if subpath[0] == '_':
+            subpath = subpath.replace('_', '.', 1)
+        dst = path.join(HOME, subpath)
+        if path.exists(dst):
+            if not filecmp.cmp(src, dst):
+                vimdiff(dst, src)
+        #else:
+        #    vimdiff(dst, src)
