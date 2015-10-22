@@ -7,6 +7,7 @@ alias rm='rm -i'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 
+
 if [ -x '/Applications/Emacs.app/Contents/MacOS/Emacs' ]; then
     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 fi
