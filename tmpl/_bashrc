@@ -7,7 +7,6 @@ alias rm='rm -i'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 
-
 if [ -x '/Applications/Emacs.app/Contents/MacOS/Emacs' ]; then
     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 fi
@@ -34,7 +33,7 @@ function append_to_path {
     fi
 }
 
-if [ -x $(\which xdg-open 2>/dev/null) ]; then
+if [ -x "$(\which xdg-open 2>/dev/null)" ]; then
     function open {
         if [ -f "$1" ]; then
             xdg-open file://$(readlink -f "$1")
