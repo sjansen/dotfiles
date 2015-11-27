@@ -88,6 +88,11 @@ export PATH="${PATH}:${GOPATH}/bin"
 # Heroku
 append_to_path /usr/local/heroku/bin
 
+# Elixir
+# sudo dnf install erlang
+# https://github.com/elixir-lang/elixir/releases/
+append_to_path $(ls -1rd ~/.local/elixir-*/bin 2>/dev/null)
+
 # IntelliJ
 append_to_path $(ls -1rd ~/.local/idea-I?-*/bin 2>/dev/null)
 

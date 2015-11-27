@@ -36,7 +36,7 @@ if has('statusline')
     set statusline=%<%f
     set statusline+=\ %w%h%m%r
     set statusline+=\ [%{getcwd()}]
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+    set statusline+=%=%-8.(%B%)\ %-10.(%l,%c%V%)\ %p%%
 endif
 
 if has("syntax")
