@@ -16,12 +16,38 @@ if has("autocmd")
     filetype on
     filetype indent on
     filetype plugin on
+
+    set expandtab
+    set softtabstop=4
+    set tabstop=8
+
+    augroup configgroup
+        autocmd!
+        autocmd VimEnter * highlight clear SignColumn
+        autocmd FileType go     setlocal noexpandtab
+        autocmd FileType python setlocal expandtab
+        autocmd FileType python setlocal shiftwidth=4
+        autocmd FileType python setlocal softtabstop=4
+        autocmd FileType python setlocal tabstop=8
+        autocmd FileType make   setlocal noexpandtab
+        autocmd BufEnter *.sh setlocal tabstop=2
+        autocmd BufEnter *.sh setlocal shiftwidth=2
+        autocmd BufEnter *.sh setlocal softtabstop=2
+    augroup END
 endif
 
 if has("cmdline_info")
     set ruler
     set showcmd
     set showmode
+endif
+
+if has("folding")
+    set foldenable
+    set foldlevelstart=10
+    set foldmethod=indent
+    set foldnestmax=10
+    nnoremap <space> za
 endif
 
 if has("extra_search")
@@ -43,6 +69,7 @@ if has("syntax")
     syntax enable
     "set t_Co=256
     set bg=dark
+    set cursorline
 endif
 
 if has("wildmenu")
@@ -52,6 +79,14 @@ endif
 
 au FileType json setlocal equalprg=python\ -m\ json.tool
 com! FormatJSON %!python -m json.tool
+
+let mapleader=","
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>s :mksession<CR>
+
+" NERDTree
+let NERDTreeIgnore = ['\.pyc$', 'venv', 'dist']
 
 " Syntastic
 let g:syntastic_check_on_open = 1
