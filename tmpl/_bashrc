@@ -79,8 +79,12 @@ append_to_path $(ls -1d ~/.local/ceylon-*/bin 2>/dev/null)
 alias_if_exists ~/.local/docker-compose/bin/docker-compose
 
 # Go
-# go get github.com/constabulary/gb/...
-# go get github.com/tools/godep
+# go get -u github.com/axw/gocov/gocov
+# go get -u github.com/golang/lint/golint
+# go get -u github.com/go-playground/statics
+# go get -u github.com/smartystreets/goconvey
+# go get -u github.com/tools/godep
+# go get -u golang.org/x/tools/cmd/goimports
 export GO15VENDOREXPERIMENT=1
 export GOPATH="${HOME}/Documents/go"
 export PATH="${PATH}:${GOPATH}/bin"
