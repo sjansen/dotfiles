@@ -80,13 +80,14 @@ alias_if_exists ~/.local/docker-compose/bin/docker-compose
 
 # Go
 # go get -u github.com/axw/gocov/gocov
-# go get -u github.com/golang/lint/golint
 # go get -u github.com/go-playground/statics
+# go get -u github.com/golang/lint/golint
+# go get -u github.com/kisielk/errcheck
 # go get -u github.com/smartystreets/goconvey
 # go get -u github.com/tools/godep
 # go get -u golang.org/x/tools/cmd/goimports
 export GO15VENDOREXPERIMENT=1
-export GOPATH="${HOME}/Documents/go"
+export GOPATH="${HOME}/Projects/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
 # Heroku
