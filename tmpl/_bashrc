@@ -51,6 +51,9 @@ fi
 # virtualenv ~/.local/awscli ; ~/.local/awscli/bin/pip install -U awscli
 alias_if_exists ~/.local/awscli/bin/aws
 
+# AWS Lambda
+# go get -u github.com/apex/apex/cmd/apex
+
 # Bash
 if [ -f /etc/bash_completion.d/git ] && ! shopt -oq posix; then
     source /etc/bash_completion.d/git
@@ -74,15 +77,30 @@ append_to_path $(ls -1d ~/.local/homebrew/bin 2>/dev/null)
 # Ceylon
 append_to_path $(ls -1d ~/.local/ceylon-*/bin 2>/dev/null)
 
+# Clojure
+# http://leiningen.org/#install
+# http://clojure.org/downloads
+
 # docker-compose
+# sudo dnf copr enable sjansen/docker-compose
 # virtualenv ~/.local/docker-compose ; ~/.local/docker-compose/bin/pip install -U docker-compose
 alias_if_exists ~/.local/docker-compose/bin/docker-compose
 
+# Elixir
+# sudo dnf install erlang
+# https://github.com/elixir-lang/elixir/releases/
+append_to_path $(ls -1rd ~/.local/elixir-*/bin 2>/dev/null)
+
+# GAE
+# https://cloud.google.com/appengine/downloads
+append_to_path $(ls -1d ~/.local/appengine-java-sdk-*/bin 2>/dev/null)
+
 # Go
 # go get -u github.com/axw/gocov/gocov
-# go get -u github.com/go-playground/statics
 # go get -u github.com/golang/lint/golint
+# go get -u github.com/go-playground/statics
 # go get -u github.com/kisielk/errcheck
+" go get -u github.com/Masterminds/glide
 # go get -u github.com/smartystreets/goconvey
 # go get -u github.com/tools/godep
 # go get -u golang.org/x/tools/cmd/goimports
@@ -92,11 +110,6 @@ export PATH="${PATH}:${GOPATH}/bin"
 
 # Heroku
 append_to_path /usr/local/heroku/bin
-
-# Elixir
-# sudo dnf install erlang
-# https://github.com/elixir-lang/elixir/releases/
-append_to_path $(ls -1rd ~/.local/elixir-*/bin 2>/dev/null)
 
 # IntelliJ
 append_to_path $(ls -1rd ~/.local/idea-I?-*/bin 2>/dev/null)

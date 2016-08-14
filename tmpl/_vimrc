@@ -66,6 +66,7 @@ if has('statusline')
 endif
 
 if has("syntax")
+    colorschem desert
     syntax enable
     "set t_Co=256
     set bg=dark
