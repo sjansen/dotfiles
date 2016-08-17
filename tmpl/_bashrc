@@ -111,7 +111,7 @@ append_to_path $(ls -1d ~/.local/go_appengine 2>/dev/null)
 # go get -u github.com/golang/lint/golint
 # go get -u github.com/go-playground/statics
 # go get -u github.com/kisielk/errcheck
-" go get -u github.com/Masterminds/glide
+# go get -u github.com/Masterminds/glide
 # go get -u github.com/smartystreets/goconvey
 # go get -u github.com/tools/godep
 # go get -u golang.org/x/tools/cmd/goimports
