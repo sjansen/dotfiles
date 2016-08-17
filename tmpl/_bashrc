@@ -23,6 +23,9 @@ fi
 export EDITOR=vim
 export LANG=en_US.UTF-8
 export PATH="${PATH}:${HOME}/bin"
+if [ -r ~/.bash_secrets ]; then
+    source ~/.bash_secrets
+fi
 
 # functions
 function alias_if_exists {
@@ -82,7 +85,6 @@ append_to_path $(ls -1d ~/.local/ceylon-*/bin 2>/dev/null)
 # http://clojure.org/downloads
 
 # docker-compose
-# sudo dnf copr enable sjansen/docker-compose
 # virtualenv ~/.local/docker-compose ; ~/.local/docker-compose/bin/pip install -U docker-compose
 alias_if_exists ~/.local/docker-compose/bin/docker-compose
 
@@ -95,8 +97,17 @@ append_to_path $(ls -1rd ~/.local/elixir-*/bin 2>/dev/null)
 # https://cloud.google.com/appengine/downloads
 append_to_path $(ls -1d ~/.local/appengine-java-sdk-*/bin 2>/dev/null)
 
+# GCP
+# https://cloud.google.com/sdk/downloads#versioned
+# https://cloud.google.com/appengine/downloads#Google_App_Engine_SDK_for_Go
+append_to_path $(ls -1d ~/.local/google-cloud-sdk/bin 2>/dev/null)
+append_to_path $(ls -1d ~/.local/go_appengine 2>/dev/null)
+
 # Go
+# brew install glide
 # go get -u github.com/axw/gocov/gocov
+# go get -u github.com/fzipp/gocyclo
+# go get -u github.com/go-playground/statics
 # go get -u github.com/golang/lint/golint
 # go get -u github.com/go-playground/statics
 # go get -u github.com/kisielk/errcheck
