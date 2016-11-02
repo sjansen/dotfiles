@@ -117,6 +117,7 @@ append_to_path $(ls -1d ~/.local/go_appengine 2>/dev/null)
 # go get -u golang.org/x/tools/cmd/goimports
 export GO15VENDOREXPERIMENT=1
 export GOPATH="${HOME}/Projects/go"
+export CDPATH=".:${GOPATH}/src/github.com/sjansen"
 export PATH="${PATH}:${GOPATH}/bin"
 
 # Heroku
