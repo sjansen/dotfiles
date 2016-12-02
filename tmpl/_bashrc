@@ -58,8 +58,16 @@ alias_if_exists ~/.local/awscli/bin/aws
 # go get -u github.com/apex/apex/cmd/apex
 
 # Bash
-if [ -f /etc/bash_completion.d/git ] && ! shopt -oq posix; then
-    source /etc/bash_completion.d/git
+function maybe_source {
+    if [ -f "$1" ] && ! shopt -oq posix; then
+        source "$1"
+    fi
+}
+maybe_source /etc/bash_completion.d/git
+maybe_source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+maybe_source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+unset -f maybe_source
+if [ -n "$(type -t __git_ps1)" ]; then
     PS1='
 \e[1;30m$OLDPWD\e[0m
 \e[1;37m$PWD
@@ -72,10 +80,6 @@ else
 \e[0;36m[\A]\e[0m RC=$? \e[0;36m\u@\e[0m\H \e[0;36m{'"$1"'}\e[0m
 \$ '
 fi
-
-# brew
-# mkdir homebrew && curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C homebrew
-append_to_path $(ls -1d ~/.local/homebrew/bin 2>/dev/null)
 
 # Ceylon
 append_to_path $(ls -1d ~/.local/ceylon-*/bin 2>/dev/null)
@@ -111,7 +115,6 @@ append_to_path $(ls -1d ~/.local/go_appengine 2>/dev/null)
 # go get -u github.com/golang/lint/golint
 # go get -u github.com/go-playground/statics
 # go get -u github.com/kisielk/errcheck
-# go get -u github.com/Masterminds/glide
 # go get -u github.com/smartystreets/goconvey
 # go get -u github.com/tools/godep
 # go get -u golang.org/x/tools/cmd/goimports
