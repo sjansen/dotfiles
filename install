@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for I in tmpl/_*; do
+    SRC="$I"
+    DST="$HOME/${I/tmpl\/_/.}"
+    if [ ! -e "$DST" ]; then
+        cp -r "$SRC" "$DST"
+    else
+        echo skipping "$DST"
+    fi
+done
