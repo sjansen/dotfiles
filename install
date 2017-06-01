@@ -4,6 +4,18 @@ for I in tmpl/_*; do
     SRC="$I"
     DST="$HOME/${I/tmpl\/_/.}"
     if [ ! -e "$DST" ]; then
+        echo installing "$DST"
+        cp -r "$SRC" "$DST"
+    else
+        echo skipping "$DST"
+    fi
+done
+
+for I in tmpl/_vim/bundle/*; do
+    SRC="$I"
+    DST="$HOME/${I/tmpl\/_/.}"
+    if [ ! -e "$DST" ]; then
+        echo installing "$DST"
         cp -r "$SRC" "$DST"
     else
         echo skipping "$DST"
