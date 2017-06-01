@@ -1,11 +1,23 @@
 [user]
 	name = Stuart Jansen
 	email = sjansen@buscaluz.org
+[alias]
+        glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+        prune = fetch --prune
+        stash-all = stash save --include-untracked
 [color]
 	ui = auto
 [core]
 	whitespace=-indent-with-non-tab,cr-at-eol,space-before-tab,tab-in-indent,trailing-space
+[merge]
+        conflictstyle = diff3
+        ff = only
 [push]
 	default = simple
+        followTags = true
 [rebase]
 	stat = true
+[status]
+        showUntrackedFiles = all
+[transfer]
+        fsckobjects = true

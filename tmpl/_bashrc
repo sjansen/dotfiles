@@ -66,7 +66,6 @@ function maybe_source {
 maybe_source /etc/bash_completion.d/git
 maybe_source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 maybe_source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
-unset -f maybe_source
 if [ -n "$(type -t __git_ps1)" ]; then
     PS1='
 \e[1;30m$OLDPWD\e[0m
@@ -106,6 +105,7 @@ append_to_path $(ls -1d ~/.local/appengine-java-sdk-*/bin 2>/dev/null)
 # https://cloud.google.com/appengine/downloads#Google_App_Engine_SDK_for_Go
 append_to_path $(ls -1d ~/.local/google-cloud-sdk/bin 2>/dev/null)
 append_to_path $(ls -1d ~/.local/go_appengine 2>/dev/null)
+maybe_source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
 
 # Go
 # brew install glide
@@ -143,3 +143,5 @@ append_to_path $(ls -1rd /Applications/Postgres.app/Contents/Versions/*/bin 2>/d
 # Scala
 append_to_path $(ls -1d ~/.local/sbt/bin 2>/dev/null)
 append_to_path $(ls -1rd ~/.local/scala-*/bin 2>/dev/null)
+
+unset -f maybe_source
