@@ -64,8 +64,10 @@ function maybe_source {
     fi
 }
 maybe_source /etc/bash_completion.d/git
-maybe_source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
-maybe_source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+if [ -x "$(type -P brew)" ]; then
+    maybe_source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+    maybe_source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+fi
 if [ -n "$(type -t __git_ps1)" ]; then
     PS1='
 \e[1;30m$OLDPWD\e[0m
@@ -131,7 +133,7 @@ append_to_path $(ls -1rd ~/.local/idea-I?-*/bin 2>/dev/null)
 
 # Java
 if [ -x /usr/libexec/java_home ]; then
-    export JAVA_HOME="$(/usr/libexec/java_home)"
+    export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
 fi
 
 # Maven
