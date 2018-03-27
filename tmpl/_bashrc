@@ -21,6 +21,7 @@ fi
 
 # environment
 export EDITOR=vim
+export HISTCONTROL=ignoreboth
 export LANG=en_US.UTF-8
 export PATH="${PATH}:${HOME}/bin"
 if [ -r ~/.bash_secrets ]; then
@@ -98,6 +99,9 @@ alias_if_exists ~/.local/docker-compose/bin/docker-compose
 # https://github.com/elixir-lang/elixir/releases/
 append_to_path $(ls -1rd ~/.local/elixir-*/bin 2>/dev/null)
 
+# Fastlane
+append_to_path "${HOME}/.fastlane/bin"
+
 # GAE
 # https://cloud.google.com/appengine/downloads
 append_to_path $(ls -1d ~/.local/appengine-java-sdk-*/bin 2>/dev/null)
@@ -122,7 +126,7 @@ maybe_source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.
 # go get -u golang.org/x/tools/cmd/goimports
 export GO15VENDOREXPERIMENT=1
 export GOPATH="${HOME}/Projects/go"
-export CDPATH=".:${GOPATH}/src/github.com/sjansen"
+export CDPATH=".:${GOPATH}/src/github.com/sjansen:${HOME}/Projects"
 export PATH="${PATH}:${GOPATH}/bin"
 
 # Heroku
@@ -147,3 +151,6 @@ append_to_path $(ls -1d ~/.local/sbt/bin 2>/dev/null)
 append_to_path $(ls -1rd ~/.local/scala-*/bin 2>/dev/null)
 
 unset -f maybe_source
+if [ -x "$(\which direnv 2>/dev/null)" ]; then
+    eval "$(direnv hook bash)"
+fi
