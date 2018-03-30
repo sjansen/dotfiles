@@ -1,8 +1,10 @@
 [ -z "$PS1" ] && return
 
+
 #if command -v tmux &>/dev/null; then
 #    [[ ! "$TERM" =~ screen ]] && [ -z "$TMUX" ] && exec tmux
 #fi
+
 
 # aliases
 alias cp='cp -i'
@@ -19,6 +21,7 @@ if [ -x '/Applications/MacVim.app/Contents/MacOS/MacVim' ]; then
     alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
 fi
 
+
 # environment
 export EDITOR=vim
 export HISTCONTROL=ignoreboth
@@ -27,6 +30,7 @@ export PATH="${PATH}:${HOME}/bin"
 if [ -r ~/.bash_secrets ]; then
     source ~/.bash_secrets
 fi
+
 
 # functions
 function alias_if_exists {
@@ -51,12 +55,6 @@ if [ -x "$(\which xdg-open 2>/dev/null)" ]; then
     }
 fi
 
-# AWS CLI
-# virtualenv ~/.local/awscli ; ~/.local/awscli/bin/pip install -U awscli
-alias_if_exists ~/.local/awscli/bin/aws
-
-# AWS Lambda
-# go get -u github.com/apex/apex/cmd/apex
 
 # Bash
 function maybe_source {
@@ -83,35 +81,10 @@ else
 \$ '
 fi
 
-# Ceylon
-append_to_path $(ls -1d ~/.local/ceylon-*/bin 2>/dev/null)
-
-# Clojure
-# http://leiningen.org/#install
-# http://clojure.org/downloads
-
-# docker-compose
-# virtualenv ~/.local/docker-compose ; ~/.local/docker-compose/bin/pip install -U docker-compose
-alias_if_exists ~/.local/docker-compose/bin/docker-compose
-
-# Elixir
-# sudo dnf install erlang
-# https://github.com/elixir-lang/elixir/releases/
-append_to_path $(ls -1rd ~/.local/elixir-*/bin 2>/dev/null)
 
 # Fastlane
 append_to_path "${HOME}/.fastlane/bin"
 
-# GAE
-# https://cloud.google.com/appengine/downloads
-append_to_path $(ls -1d ~/.local/appengine-java-sdk-*/bin 2>/dev/null)
-
-# GCP
-# https://cloud.google.com/sdk/downloads#versioned
-# https://cloud.google.com/appengine/downloads#Google_App_Engine_SDK_for_Go
-append_to_path $(ls -1d ~/.local/google-cloud-sdk/bin 2>/dev/null)
-append_to_path $(ls -1d ~/.local/go_appengine 2>/dev/null)
-maybe_source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
 
 # Go
 # brew install glide
@@ -124,31 +97,24 @@ maybe_source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.
 # go get -u github.com/smartystreets/goconvey
 # go get -u github.com/tools/godep
 # go get -u golang.org/x/tools/cmd/goimports
-export GO15VENDOREXPERIMENT=1
 export GOPATH="${HOME}/Projects/go"
-export CDPATH=".:${GOPATH}/src/github.com/sjansen:${HOME}/Projects"
+if [ -z "$CDPATH" ]; then
+    export CDPATH=".:${GOPATH}/src/github.com/sjansen"
+else
+    export CDPATH="${CDPATH}:${GOPATH}/src/github.com/sjansen"
+fi
 export PATH="${PATH}:${GOPATH}/bin"
 
-# Heroku
-append_to_path /usr/local/heroku/bin
-
-# IntelliJ
-append_to_path $(ls -1rd ~/.local/idea-I?-*/bin 2>/dev/null)
 
 # Java
 if [ -x /usr/libexec/java_home ]; then
     export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
 fi
 
-# Maven
-append_to_path $(ls -1rd ~/.local/apache-maven-*/bin 2>/dev/null)
 
 # PostgreSQL
 append_to_path $(ls -1rd /Applications/Postgres.app/Contents/Versions/*/bin 2>/dev/null)
 
-# Scala
-append_to_path $(ls -1d ~/.local/sbt/bin 2>/dev/null)
-append_to_path $(ls -1rd ~/.local/scala-*/bin 2>/dev/null)
 
 unset -f maybe_source
 if [ -x "$(\which direnv 2>/dev/null)" ]; then
