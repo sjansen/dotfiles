@@ -5,18 +5,13 @@ set encoding=utf-8 nobomb
 set modeline
 set modelines=5
 
-if filereadable(expand("~/.vim/autoload/pathogen.vim"))
-    runtime! autoload/pathogen.vim
-    if exists("g:loaded_pathogen")
-       execute pathogen#infect()
-    endif
-endif
+" :PlugUpgrade
+" :PlugUpdate
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+call plug#end()
 
 if has("autocmd")
-    filetype on
-    filetype indent on
-    filetype plugin on
-
     set expandtab
     set softtabstop=4
     set tabstop=8
@@ -78,29 +73,7 @@ if has("wildmenu")
     set wildmode=longest,list
 endif
 
-au FileType json setlocal equalprg=python\ -m\ json.tool
-com! FormatJSON %!python -m json.tool
-
-let mapleader=","
-nnoremap j gj
-nnoremap k gk
-nnoremap <leader>s :mksession<CR>
-
-" NERDTree
-let NERDTreeIgnore = ['\.pyc$', 'venv', 'dist']
-
-" Syntastic
-"let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['go'] " gometalinter
-" Switch Syntastic to passive mode for faster editing of Go files
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
 " vim-go
-" go get -u github.com/axw/gocov/gocov
-" go get -u golang.org/x/tools/cmd/goimports
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
