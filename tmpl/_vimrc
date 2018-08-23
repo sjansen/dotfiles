@@ -9,6 +9,7 @@ set modelines=5
 " :PlugUpdate
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 if has("autocmd")
@@ -72,6 +73,15 @@ if has("wildmenu")
     set wildmenu
     set wildmode=longest,list
 endif
+
+" Syntastic
+"let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['go'] " gometalinter
+" Switch Syntastic to passive mode for faster editing of Go files
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " vim-go
 let g:go_fmt_command = "goimports"
