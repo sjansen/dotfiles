@@ -13,6 +13,10 @@ Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 if has("autocmd")
+    filetype on
+    filetype indent on
+    filetype plugin on
+
     set expandtab
     set softtabstop=4
     set tabstop=8

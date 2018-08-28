@@ -23,6 +23,12 @@ fi
 
 
 # environment
+shopt -s checkwinsize
+shopt -s histappend
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
+HISTFILESIZE=2000
+
 export EDITOR=vim
 export HISTCONTROL=ignoreboth
 export LANG=en_US.UTF-8
@@ -117,6 +123,8 @@ append_to_path $(ls -1rd /Applications/Postgres.app/Contents/Versions/*/bin 2>/d
 
 
 unset -f maybe_source
+
+# direnv
 if [ -x "$(\which direnv 2>/dev/null)" ]; then
     eval "$(direnv hook bash)"
 fi
