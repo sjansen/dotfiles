@@ -12,6 +12,14 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+if ls --color &>/dev/null; then
+    alias ls='ls --color=auto'
+else
+    export CLICOLOR=1
+fi
+
 
 if [ -x '/Applications/Emacs.app/Contents/MacOS/Emacs' ]; then
     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
@@ -88,21 +96,7 @@ else
 fi
 
 
-# Fastlane
-append_to_path "${HOME}/.fastlane/bin"
-
-
 # Go
-# brew install glide
-# go get -u github.com/axw/gocov/gocov
-# go get -u github.com/fzipp/gocyclo
-# go get -u github.com/go-playground/statics
-# go get -u github.com/golang/lint/golint
-# go get -u github.com/go-playground/statics
-# go get -u github.com/kisielk/errcheck
-# go get -u github.com/smartystreets/goconvey
-# go get -u github.com/tools/godep
-# go get -u golang.org/x/tools/cmd/goimports
 export GOPATH="${HOME}/Projects/go"
 if [ -z "$CDPATH" ]; then
     export CDPATH=".:${GOPATH}/src/github.com/sjansen"
@@ -123,6 +117,7 @@ append_to_path $(ls -1rd /Applications/Postgres.app/Contents/Versions/*/bin 2>/d
 
 
 unset -f maybe_source
+
 
 # direnv
 if [ -x "$(\which direnv 2>/dev/null)" ]; then

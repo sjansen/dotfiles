@@ -8,6 +8,7 @@ set modelines=5
 " :PlugUpgrade
 " :PlugUpdate
 call plug#begin('~/.vim/plugged')
+Plug 'elmcast/elm-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vim-syntastic/syntastic'
 call plug#end()
