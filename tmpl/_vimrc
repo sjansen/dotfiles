@@ -10,6 +10,7 @@ set modelines=5
 call plug#begin('~/.vim/plugged')
 Plug 'elmcast/elm-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'vim-syntastic/syntastic'
 call plug#end()
 
@@ -97,3 +98,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_list_type = "quickfix"
+
+" vim-prettier
+let g:prettier#autoformat = 1
+let g:prettier#quickfix_enabled = 0
