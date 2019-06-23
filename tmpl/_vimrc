@@ -10,6 +10,8 @@ set modelines=5
 call plug#begin('~/.vim/plugged')
 Plug 'elmcast/elm-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'google/vim-jsonnet'
+Plug 'justinmeza/lolcode.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'vim-syntastic/syntastic'
 call plug#end()
