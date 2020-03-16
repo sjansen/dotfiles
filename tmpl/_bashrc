@@ -99,9 +99,9 @@ fi
 # Go
 export GOPATH="${HOME}/Projects/go"
 if [ -z "$CDPATH" ]; then
-    export CDPATH=".:${GOPATH}/src/github.com/sjansen"
+    export CDPATH=".:${GOPATH}/src/github.com/sjansen:${HOME}/Projects"
 else
-    export CDPATH="${CDPATH}:${GOPATH}/src/github.com/sjansen"
+    export CDPATH="${CDPATH}:${GOPATH}/src/github.com/sjansen:${HOME}/Projects"
 fi
 export PATH="${PATH}:${GOPATH}/bin"
 
