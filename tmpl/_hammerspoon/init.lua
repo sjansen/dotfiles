@@ -1,5 +1,12 @@
 local log = hs.logger.new("dotfile", "debug")
 
+-- local wf = hs.window.filter.default
+-- w = wf:allowApp("Emacs"):getWindows()[1]
+-- w:move(hs.geometry.point(0, 0)
+-- m = hs.menubar.new()
+-- m:setTitle("💡")
+-- m:setMenu({{title="foo", fn=function() m = hs.alert.show("foo clicked") end}})
+
 -- reload config
 function reload_config(files)
 	hs.console.clearConsole()
